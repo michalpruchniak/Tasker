@@ -18,3 +18,7 @@
     Route::post('/tasks/store', [TaskController::class, 'store'])
                             ->name('tasks.store')
                             ->middleware('auth');
+
+    Route::get('/tasks/toggle-complete/{id}', [TaskController::class, 'toggleComplete'])
+                            ->name('tasks.toggleComplete')
+                            ->middleware('auth');

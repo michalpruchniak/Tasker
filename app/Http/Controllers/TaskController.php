@@ -42,4 +42,10 @@ class TaskController extends Controller
 
         return redirect(RouteServiceProvider::CREATE);
     }
+
+    public function toggleComplete($id){
+        $task = Task::find($id);
+        $task->complete = !$task->complete;
+        $task->save();
+    }
 }
