@@ -10,6 +10,7 @@
     Route::get('/tasks/create', [TaskController::class, 'create'])
                             ->name('tasks.create')
                             ->middleware('auth');
+
     Route::get('/tasks/create/{id}', [TaskController::class, 'create'])
                             ->name('tasks.create')
                             ->middleware('auth');

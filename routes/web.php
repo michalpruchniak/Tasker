@@ -33,5 +33,5 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-require __DIR__.'/tasks.php';
-require __DIR__.'/projects.php';
+require __DIR__.'/project.php';
+require __DIR__.'/task.php';
