@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import Button from '@/Components/Button';
 import Authenticated from '@/Layouts/Authenticated';
 
@@ -7,16 +10,17 @@ import Label from '@/Components/Label';
 import List from '@/Components/List';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, useForm } from '@inertiajs/inertia-react';
+import moment from 'moment';
 
 export default function Register(props) {
     const { data, setData, post, errors } = useForm({
         name: '',
         description: '',
-        start: '',
+        start: new Date(),
         end: '',
-        project: ''
+        project: props.selected
     });
-
+    const [startDate, setStartDate] = useState(new Date());
     const onHandleChange = (event) => {
         setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
     };
@@ -70,28 +74,13 @@ export default function Register(props) {
 
                                 <div className="mt-4">
                                     <Label forInput="start" value="start" />
-
-                                    <Input
-                                        type="text"
-                                        name="start"
-                                        value={data.start}
-                                        className="mt-1 block w-full"
-                                        autoComplete="start"
-                                        handleChange={onHandleChange}
-                                    />
+                                        <DatePicker name="start" showTimeSelect dateFormat="Pp" selected={data.start} onChange={(date) => setData('start', date)} />
                                 </div>
 
                                 <div className="mt-4">
                                     <Label forInput="end" value="end" />
+                                        <DatePicker selected={data.end} showTimeSelect dateFormat="Pp" onChange={(date) => setData('end', date)} />
 
-                                    <Input
-                                        type="text"
-                                        name="end"
-                                        value={data.end}
-                                        className="mt-1 block w-full"
-                                        autoComplete="end"
-                                        handleChange={onHandleChange}
-                                    />
                                 </div>
 
                                 <div className="mt-4">

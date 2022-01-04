@@ -8,7 +8,6 @@ export default function List({
     isFocused,
     handleChange,
     selected,
-    value,
     options
 }) {
     const list = useRef();

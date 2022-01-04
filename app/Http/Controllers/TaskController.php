@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 use Inertia\Inertia;
 use App\Models\Project;
 use App\Models\Task;
-use Illuminate\Http\Request;
 
 use App\Providers\RouteServiceProvider;
+use App\Http\Requests\TaskRequest;
 
 
 class TaskController extends Controller
@@ -30,13 +32,13 @@ class TaskController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         Task::create([
             'name' => $request->name,
             'description' => $request->description,
-            'start' => $request->start,
-            'end' => $request->end,
+            'start' => Carbon::parse($request->start)->format('Y-m-d'),
+            'end' => Carbon::parse($request->end)->format('Y-m-d'),
             'project_id' => $request->project
         ]);
 
