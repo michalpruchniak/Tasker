@@ -8261,6 +8261,36 @@ function Register(props) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Task/Details.js":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/Task/Details.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Details)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function Details(_ref) {
+  var task = _ref.task;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "fixed m-auto inset-x-0 sm:w-96 md:w-128 sm:w-24 bg-white rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+      children: task.name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("small", {
+      children: task.description
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+      children: [task.start, " ", task.end ? task.end : '']
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Task/Index.js":
 /*!******************************************!*\
   !*** ./resources/js/Pages/Task/Index.js ***!
@@ -8325,15 +8355,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Details__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Details */ "./resources/js/Pages/Task/Details.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
-    children: props.tasks.map(function (task) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-        children: task.name
-      }, task.id);
-    })
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    name: '',
+    description: '',
+    start: '',
+    end: ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      task = _useState2[0],
+      setTask = _useState2[1];
+
+  var handleClick = function handleClick(_ref) {
+    var name = _ref.name,
+        description = _ref.description,
+        start = _ref.start,
+        end = _ref.end;
+    setTask({
+      name: name,
+      description: description,
+      start: start,
+      end: end
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+      children: props.tasks.map(function (task) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          onClick: function onClick() {
+            return handleClick(task);
+          },
+          children: task.name
+        }, task.id);
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Details__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      task: task
+    })]
   });
 }
 
@@ -94393,6 +94471,8 @@ var map = {
 	"./Project/ProjectList.js": "./resources/js/Pages/Project/ProjectList.js",
 	"./Task/Create": "./resources/js/Pages/Task/Create.js",
 	"./Task/Create.js": "./resources/js/Pages/Task/Create.js",
+	"./Task/Details": "./resources/js/Pages/Task/Details.js",
+	"./Task/Details.js": "./resources/js/Pages/Task/Details.js",
 	"./Task/Index": "./resources/js/Pages/Task/Index.js",
 	"./Task/Index.js": "./resources/js/Pages/Task/Index.js",
 	"./Task/TaskList": "./resources/js/Pages/Task/TaskList.js",
