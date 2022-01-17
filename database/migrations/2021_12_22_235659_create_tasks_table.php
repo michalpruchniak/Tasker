@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->dateTime('start')->nullable();
             $table->dateTime('end')->nullable();
             $table->integer('project_id')->nullable();
-            $table->boolean('complete')->default(0);
+            $table->boolean('complete')->default(false);
             $table->timestamps();
         });
     }

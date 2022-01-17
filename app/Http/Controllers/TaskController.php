@@ -49,5 +49,6 @@ class TaskController extends Controller
         $task = Task::find($id);
         $task->complete = !$task->complete;
         $task->save();
+        return $task->complete;
     }
 }
